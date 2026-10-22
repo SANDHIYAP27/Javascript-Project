@@ -1,0 +1,813 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Sandhiya P., B.Sc. Computer Science student interested in web and software development.">
+    <title>Sandhiya P. | Portfolio</title>
+    <style>
+        :root {
+            --bg: #fff5f8;
+            --surface: #ffffff;
+            --ink: #39232d;
+            --muted: #806b74;
+            --accent: #d96b98;
+            --accent2: #f4b8ce;
+            --line: #f3dce5;
+            --soft: #ffe8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button, input, textarea {
+            font: inherit;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 8%;
+            background: #fff5f8ee;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 850;
+            color: var(--accent);
+        }
+
+        nav {
+            display: flex;
+            gap: 22px;
+        }
+
+        nav a {
+            font-size: .9rem;
+            color: var(--muted);
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: 0;
+            font-size: 1.6rem;
+        }
+
+        .hero {
+            min-height: 82vh;
+            padding: 90px 10%;
+            display: flex;
+            align-items: center;
+            background: radial-gradient(circle at 85% 20%, #fbdce8 0, transparent 28%),
+                        radial-gradient(circle at 72% 78%, #f8cddd 0, transparent 30%),
+                        var(--bg);
+        }
+
+        .hero-inner {
+            max-width: 850px;
+        }
+
+        .pill {
+            display: inline-block;
+            background: var(--soft);
+            color: var(--accent);
+            border: 1px solid #f3c7d9;
+            border-radius: 99px;
+            padding: 6px 14px;
+            font-size: .78rem;
+            font-weight: 750;
+            letter-spacing: 1.5px;
+        }
+
+        h1 {
+            font-size: clamp(2.7rem, 7vw, 5.2rem);
+            line-height: 1.08;
+            margin: 22px 0 14px;
+            letter-spacing: -2px;
+        }
+
+        h1 span, .highlight {
+            color: var(--accent);
+        }
+
+        .hero h2 {
+            font-size: clamp(1.2rem, 3vw, 1.7rem);
+            margin-bottom: 18px;
+        }
+
+        .desc {
+            color: var(--muted);
+            max-width: 680px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 28px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 11px 20px;
+            border-radius: 12px;
+            background: var(--accent);
+            color: white;
+            font-weight: 750;
+            border: 1px solid var(--accent);
+            transition: .2s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px #d96b9833;
+        }
+
+        .btn.alt {
+            background: transparent;
+            color: var(--accent);
+        }
+
+        .social {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+            color: var(--muted);
+            font-size: .92rem;
+        }
+
+        .social a:hover {
+            color: var(--accent);
+        }
+
+        section:not(.hero) {
+            padding: 76px 10%;
+            scroll-margin-top: 75px;
+        }
+
+        .section-head {
+            text-align: center;
+            margin-bottom: 34px;
+        }
+
+        .eyebrow {
+            font-size: .76rem;
+            color: var(--accent);
+            font-weight: 800;
+            letter-spacing: 3px;
+        }
+
+        .section-head h2 {
+            font-size: clamp(2rem, 4vw, 2.7rem);
+            margin-top: 5px;
+            letter-spacing: -1px;
+        }
+
+        .about {
+            max-width: 900px;
+            margin: auto;
+            padding: 30px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            box-shadow: 0 12px 35px #7a425208;
+        }
+
+        .about p {
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .facts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .fact {
+            padding: 16px;
+            background: var(--soft);
+            border-radius: 14px;
+        }
+
+        .fact strong {
+            display: block;
+            color: var(--accent);
+        }
+
+        .fact small {
+            color: var(--muted);
+        }
+
+        #skills, #certificates {
+            background: #fff0f5;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 23px;
+            transition: .2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #efb3ca;
+            box-shadow: 0 12px 28px #7a42520c;
+        }
+
+        .icon {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            margin-bottom: 7px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: .94rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--soft);
+            color: #b94775;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: .78rem;
+            margin-top: 14px;
+        }
+
+        .education-box {
+            max-width: 800px;
+            margin: auto;
+            border-left: 3px solid var(--accent);
+            padding: 4px 0 4px 24px;
+        }
+
+        .education-box h3 {
+            font-size: 1.25rem;
+        }
+
+        .education-box p {
+            color: var(--muted);
+        }
+
+        .education-box .date {
+            font-size: .85rem;
+            color: var(--accent);
+            font-weight: 750;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--accent);
+            font-weight: 750;
+            font-size: .9rem;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        .contact-intro {
+            text-align: center;
+            color: var(--muted);
+            margin: -12px auto 28px;
+        }
+
+        .contact-layout {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: .9fr 1.1fr;
+            gap: 24px;
+        }
+
+        .contact-panel {
+            padding: 25px;
+            border-radius: 18px;
+            background: var(--soft);
+        }
+
+        .contact-panel p {
+            color: var(--muted);
+            margin: 8px 0 15px;
+        }
+
+        .contact-panel a {
+            display: block;
+            overflow-wrap: anywhere;
+            margin: 10px 0;
+            color: var(--accent);
+            font-weight: 650;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-form label {
+            font-size: .9rem;
+            font-weight: 700;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: white;
+            outline: none;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--accent);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+        }
+
+        #formStatus {
+            color: var(--accent);
+            font-size: .9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 24px;
+            color: var(--muted);
+            font-size: .85rem;
+            border-top: 1px solid var(--line);
+        }
+
+        footer a {
+            color: var(--accent);
+        }
+
+        @media (max-width: 850px) {
+            .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 620px) {
+            header {
+                flex-wrap: wrap;
+                padding: 14px 6%;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                padding: 14px 0 4px;
+            }
+
+            nav.open {
+                display: flex;
+            }
+
+            .hero {
+                padding: 70px 7%;
+                min-height: 75vh;
+            }
+
+            section:not(.hero) {
+                padding: 58px 7%;
+            }
+
+            .grid, .facts {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                letter-spacing: -1px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                scroll-behavior: auto;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a class="logo" href="#home">Sandhiya<span>.</span></a>
+
+        <button class="menu-btn" id="menuBtn"
+                aria-label="Toggle navigation"
+                aria-expanded="false">☰</button>
+
+        <nav id="navbar">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#certificates">Certifications</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-inner">
+                <span class="pill">
+                    COMPUTER SCIENCE • CREATIVE PROBLEM SOLVER
+                </span>
+
+                <h1>Hello, I'm<br><span>Sandhiya P.</span></h1>
+
+                <h2>
+                    I'm an <span class="highlight" id="typing">Aspiring Web Developer</span>
+                    <span class="highlight"> |</span>
+                </h2>
+
+                <p class="desc">
+                    A motivated B.Sc. Computer Science student interested in
+                    web and software development. I enjoy applying programming
+                    knowledge, learning new technologies, and building useful,
+                    user-friendly applications.
+                </p>
+
+                <div class="actions">
+                    <a class="btn" href="#projects">Explore My Work ↗</a>
+                    <a class="btn alt" href="#contact">Contact Me</a>
+                </div>
+
+                <div class="social">
+                    <a href="https://github.com/SANDHIYAP27"
+                       target="_blank" rel="noopener">GitHub ↗</a>
+                    <a href="mailto:sandysandhiya16524@gmail.com">Email ↗</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="section-head">
+                <p class="eyebrow">A LITTLE INTRODUCTION</p>
+                <h2>About <span class="highlight">Me</span></h2>
+            </div>
+
+            <div class="about">
+                <p>Hello! I'm <strong>Sandhiya P.</strong>, a B.Sc. Computer Science student at K.G. College of Arts and Science, Coimbatore.</p>
+
+                <p>My career objective is to build practical skills in web and software development, apply my programming knowledge, and contribute to useful, user-friendly applications.</p>
+
+                <p>I am a fresher who is eager to learn new technologies and develop my skills through hands-on projects.</p>
+
+                <div class="facts">
+                    <div class="fact">
+                        <strong>2028</strong>
+                        <small>Degree timeline</small>
+                    </div>
+                    <div class="fact">
+                        <strong>72%</strong>
+                        <small>Current CGPA</small>
+                    </div>
+                    <div class="fact">
+                        <strong>Web Development</strong>
+                        <small>Career focus</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <div class="section-head">
+                <p class="eyebrow">MY LEARNING JOURNEY</p>
+                <h2>Education</h2>
+            </div>
+
+            <div class="education-box">
+                <p class="date">Expected graduation: 2028</p>
+                <h3>B.Sc. Computer Science</h3>
+                <p>K.G. College of Arts and Science, Coimbatore</p>
+                <p>Academic score: 72% (as listed)</p>
+                <p>Higher Secondary (Class XII): 76% • Secondary (Class X): 67%</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="section-head">
+                <p class="eyebrow">TOOLS IN MY TOOLKIT</p>
+                <h2>Technical Skills</h2>
+            </div>
+
+            <div class="grid">
+                <article class="card">
+                    <div class="icon">⌘</div>
+                    <h3>C Programming</h3>
+                    <p>My most comfortable language; building logic, problem-solving, and programming fundamentals.</p>
+                    <span class="tag">Most comfortable</span>
+                </article>
+
+                <article class="card">
+                    <div class="icon">☕</div>
+                    <h3>Java</h3>
+                    <p>Learning object-oriented programming concepts and application development.</p>
+                    <span class="tag">OOP fundamentals</span>
+                </article>
+
+                <article class="card">
+                    <div class="icon">🐍</div>
+                    <h3>Python</h3>
+                    <p>Using core programming concepts to develop logical thinking and coding confidence.</p>
+                    <span class="tag">Programming</span>
+                </article>
+
+                <article class="card">
+                    <div class="icon">🌐</div>
+                    <h3>Web Development</h3>
+                    <p>Career focus: building practical and user-friendly web experiences.</p>
+                    <span class="tag">Career focus</span>
+                </article>
+
+                <article class="card">
+                    <div class="icon">🧩</div>
+                    <h3>Problem Solving</h3>
+                    <p>Practising logical thinking through academic programming projects.</p>
+                    <span class="tag">Growing skill</span>
+                </article>
+
+                <article class="card">
+                    <div class="icon">🗣️</div>
+                    <h3>Languages</h3>
+                    <p>Tamil and English.</p>
+                    <span class="tag">Communication</span>
+                </article>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="section-head">
+                <p class="eyebrow">SELECTED ACADEMIC WORK</p>
+                <h2>My Projects</h2>
+            </div>
+
+            <div class="grid">
+                <article class="card">
+                    <div class="icon">➗</div>
+                    <h3>Mini Library Catalog</h3>
+                    <p>A mini project focused on organizing and managing library catalog information using C programming.</p>
+                    <span class="tag">C Programming</span>
+                    <a class="project-link"
+                       href="https://github.com/SANDHIYAP27"
+                       target="_blank" rel="noopener">View on GitHub ↗</a>
+                </article>
+
+                <article class="card">
+                    <div class="icon">💳</div>
+                    <h3>Digital Complaint Registration and Status Monitoring System</h3>
+                    <p>A Java-based project concept for registering complaints and tracking their status through a simple system.</p>
+                    <span class="tag">Java · OOP</span>
+                    <a class="project-link"
+                       href="https://github.com/SANDHIYAP27"
+                       target="_blank" rel="noopener">View on GitHub ↗</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="certificates">
+            <div class="section-head">
+                <p class="eyebrow">CONTINUOUS LEARNING</p>
+                <h2>Certifications</h2>
+            </div>
+
+            <div class="grid">
+                <article class="card">
+                    <div class="icon">💻</div>
+                    <h3>C Programming with DSA Foundation</h3>
+                    <p>Programming and data structures fundamentals.</p>
+                </article>
+
+                <article class="card">
+                    <div class="icon">🐍</div>
+                    <h3>Programming in Python</h3>
+                    <p>Core Python programming concepts.</p>
+                </article>
+
+                <article class="card">
+                    <div class="icon">☕</div>
+                    <h3>Advanced Java Development</h3>
+                    <p>Java and object-oriented development.</p>
+                </article>
+
+                <article class="card">
+                    <div class="icon">🛒</div>
+                    <h3>Create a Supermarket App Using Java OOP</h3>
+                    <p>Practical learning with Java OOP.</p>
+                </article>
+
+                <article class="card">
+                    <div class="icon">📄</div>
+                    <h3>Create a Resume and Cover Letter with Google Docs</h3>
+                    <p>Career document preparation.</p>
+                </article>
+
+                <article class="card">
+                    <div class="icon">☁️</div>
+                    <h3>Cloud Computing and Distributed Systems</h3>
+                    <p>Cloud and distributed computing concepts.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="section-head">
+                <p class="eyebrow">LET'S TALK</p>
+                <h2>Contact <span class="highlight">Me</span></h2>
+            </div>
+
+            <p class="contact-intro">
+                Have an idea or opportunity to share? Feel free to get in touch.
+            </p>
+
+            <div class="contact-layout">
+                <div class="contact-panel">
+                    <h3>Let's connect!</h3>
+                    <p>I'm interested in learning, collaborating, and exploring opportunities in web development.</p>
+
+                    <a href="mailto:sandysandhiya16524@gmail.com">
+                        ✉ sandysandhiya16524@gmail.com
+                    </a>
+
+                    <a href="tel:+919345764294">☎ +91 93457 64294</a>
+
+                    <a href="https://github.com/SANDHIYAP27"
+                       target="_blank" rel="noopener">
+                        ⌘ github.com/SANDHIYAP27
+                    </a>
+
+                    <p><strong>Location:</strong> Coimbatore, Tamil Nadu</p>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <label for="name">Your Name</label>
+                    <input id="name" name="name"
+                           placeholder="Enter your name" required>
+
+                    <label for="email">Your Email</label>
+                    <input id="email" name="email" type="email"
+                           placeholder="Enter your email" required>
+
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="5"
+                              placeholder="Write your message..."
+                              required></textarea>
+
+                    <button class="btn" type="submit">Prepare Email ↗</button>
+                    <p id="formStatus" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Designed with care by <strong>Sandhiya P.</strong> · © <span id="year"></span></p>
+        <a href="#home">Back to top ↑</a>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const navbar = document.getElementById("navbar");
+
+        menuBtn.addEventListener("click", () => {
+            const open = navbar.classList.toggle("open");
+            menuBtn.textContent = open ? "✕" : "☰";
+            menuBtn.setAttribute("aria-expanded", String(open));
+        });
+
+        navbar.querySelectorAll("a").forEach(a => {
+            a.addEventListener("click", () => {
+                navbar.classList.remove("open");
+                menuBtn.textContent = "☰";
+                menuBtn.setAttribute("aria-expanded", "false");
+            });
+        });
+
+        const words = [
+            "Aspiring Web Developer",
+            "Computer Science Student",
+            "Creative Problem Solver"
+        ];
+
+        let wi = 0, ci = 0, del = false;
+        const typing = document.getElementById("typing");
+
+        function type() {
+            const word = words[wi];
+            typing.textContent = word.slice(0, ci);
+
+            if (!del && ci < word.length) {
+                ci++;
+                setTimeout(type, 85);
+            } else if (!del) {
+                del = true;
+                setTimeout(type, 1200);
+            } else if (ci > 0) {
+                ci--;
+                setTimeout(type, 38);
+            } else {
+                del = false;
+                wi = (wi + 1) % words.length;
+                setTimeout(type, 250);
+            }
+        }
+
+        type();
+
+        document.getElementById("contactForm").addEventListener("submit", e => {
+            e.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+            const status = document.getElementById("formStatus");
+
+            if (!name || !email || !message) {
+                status.textContent = "Please complete all fields.";
+                return;
+            }
+
+            status.textContent = "Opening your email app with the message prepared.";
+
+            const subject = encodeURIComponent("Portfolio message from " + name);
+            const body = encodeURIComponent(
+                "Name: " + name +
+                "\nEmail: " + email +
+                "\n\nMessage:\n" + message
+            );
+
+            window.location.href =
+                "mailto:sandysandhiya16524@gmail.com?subject=" +
+                subject + "&body=" + body;
+        });
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+</body>
+</html>
